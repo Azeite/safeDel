@@ -1,0 +1,45 @@
+.TH Safedel-Skeleton 1
+.SH Name
+.safeDel-skeleton \- safe delete files
+.SH SYNOPSIS
+.B safeDel-skeleton.sh
+[\fIOPTION\fR]... [\fIFILE\fR]...
+.SH DESCRIPTION
+.B SafeDel-skeleton
+is a safe delete command that will delete files in a safe way by moving them to a trash directory so that the user can recover them later.
+.SS OPTIONS
+.TP
+\-l
+Output a list on screen of the contents of the trashCan directory
+.TP
+\-r
+get a specified file from the trashCan directory and place it in the
+current directory
+.TP
+\-d
+interactively the contents of the trashCan directory
+.TP
+\-t
+display total usage in bytes of the trashCan directory for the user of the trashcan
+.TP
+\-m
+start monitor script process
+.TP
+\-k
+kill current user’s monitor script processes
+.TP
+.SH EXAMPLES
+.TP
+View a file called index.html
+.B fileViewer
+\-f index.html
+.TP
+Enter interactive mode for a directory named test_dire
+.B fileViewer
+test_dir
+.SH AUTHOR
+Written by Azeite Chaleca (azeite.augusto@gmail.com)
+.SH SEE ALSO
+.BR cat (1)
+.TP
+.BR man (2)
