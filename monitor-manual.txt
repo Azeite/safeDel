@@ -1,0 +1,66 @@
+safeDel(1)		    General Commands Manual		    safeDel(1)
+
+
+
+NAME
+       safeDel- a command to safe delete files
+
+SYNOPSIS
+       safeDel.sh [OPTION]... [FILE]...
+
+DESCRIPTION
+       SafeDel	is  a safe delete command that will delete files in a safe way
+       by moving them to a trash directory so that the user can  recover  them
+       later.
+
+OPTIONS
+       -l     Output  a  list on screen of the contents of the trashCan direc-
+	      tory
+
+       -r     get a specified file from the trashCan directory and place it in
+	      the current directory
+
+       -d     interactively the contents of the trashCan directory
+
+       -t     display  total  usage in bytes of the trashCan directory for the
+	      user of the trashcan
+
+       -m     start monitor script process
+
+       -k     kill current users monitor script processes
+
+EXAMPLES
+       Delete a file called index.html
+	      safeDel.sh index.html
+
+       List files from Trash
+	      safeDel.sh -l
+
+       Recover a file called index.html
+	      safeDel.sh -r index.html
+
+       Delete interactively the content of the TrashCan
+	      safeDel.sh -d
+
+       Display total usage in bytes of the TrashCan
+	      safeDel.sh -t
+
+       Start monitor script process to track file changes in the TrashCan
+	      safeDel.sh -m
+
+       Kill current user's monitor script
+	      safeDel.sh -k
+
+FILES
+       ./monitor.sh
+	      Provides the script to run the monitor command
+
+AUTHOR
+       Written by Azeite Chaleca (azeite.augusto@gmail.com)
+
+SEE ALSO
+       monitor.sh(1)
+
+
+
+								    safeDel(1)

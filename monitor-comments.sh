@@ -1,4 +1,15 @@
 #!/bin/bash
+
+
+
+#First it stores the hashes of the files in the TrashCan directory to sum.md5 file using the md5sum command
+#Sleeps for 15sec as required
+#Stores hashes in a new file(sum1.md5) 
+#With an if statement, using the local variables it checks if one of the two files containing the hashes if they are empty
+	#it only creates hash if the file contains files, if there no files it does not create any hash
+#It reads the first md5 file containing the old hashes and compares them to the new md5 file to track changes
+#For every changes: Deletion, Modification, Recovery of a file, the script tracks and notifies the user every 15sec(as required)
+
 function monitor()
 {
 
@@ -12,7 +23,6 @@ function monitor()
 	echo "**                                   **"	
 	echo "***************************************"
 	echo "***************************************"
-	echo "********MONITORING THE TrashCan********"
 	local count1
 	local count2 
 	while true
@@ -58,18 +68,17 @@ function monitor()
 trap trapCtrlC SIGINT
 trap trapEndMonitor KILL
 
-function trapCtrlC()
-{
-	echo -e "\r\nYOU HIT *** Ctrl-C ***"
-	echo "TERMINATNG THE MONITOR!"		
-	exit 130
+
+#It gets the signal(SIGINT) trap from the user
+#Informs the user
+#Exits the program
+trapCtrlC(){
+    echo -e "\r\nYou hit Ctrl-C. You are no longer watching your TrashCan!"
+    exit 130
 }
 
-function trapEndMonitor()
-{
-	kill -9 $1
-	echo -e "\r\nMONITOR KILLED!"
+#gets the process id to kill the monitor
+trapEndMonitor(){
+    kill -9 $1
+    echo -e "\r\nGoodbye watching is over for today"
 }
-
-
-
